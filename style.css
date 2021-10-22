@@ -76,18 +76,20 @@ ul li a:hover{
 
 
 body {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-   /*  background: #edeeed; */
+    min-height: 100vh; 
+   background: #edeeed; */
 }
 
 .drops {
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 50%;
+    margin-top: 15%;
 }
 
 .drop {
