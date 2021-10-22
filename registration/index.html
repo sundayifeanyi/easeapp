@@ -8,6 +8,8 @@
  <link rel="icon" type="image/x-icon" href="apple.png" />
  <title>Home Page</title>
  <link rel="stylesheet" href="bootstrap.css">
+ 
+ <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="hideForm();">
@@ -69,6 +71,21 @@
   </div>
  </div>
 </body>
-<script src="script.js"></script>
+<script src="script.js">
+
+    //detect browser
+if (!navigator.appName == "Microsoft Internet Explorer") {
+//window.location = "ie_version.htm"
+}
+else {
+if (navigator.appName == "Netscape") {
+window.location = "netscape_version.htm"
+}
+// If the user is running some other browser,
+    else {
+    document.write("You’re not running Microsoft IE or Netscape.")
+    }
+}
+</script>
 
 </html>
