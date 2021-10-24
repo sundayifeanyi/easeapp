@@ -322,7 +322,7 @@ numShirts++;
 }
 }
 // The following is a do-while loop.
-do {
+ do {
 var answer = prompt("Would you like to purchase"
 + article
 + " t-shirt? If so, enter the size (S,M,L) and click OK. When you finish, click Cancel", "M")
@@ -336,3 +336,35 @@ document.writeln("You ordered " + numShirts + " " + "shirts:"
 + smallShirts + "small" + "<br>"
 + medShirts + "medium"
 + largeShirts + "large");
+
+//alert('am the page you \'r looking for')
+
+function locateImage(name) {
+    //Start with a blank variable called theImage
+    var theImage = false;
+    // If there are images defined for this document . . .
+    if (document.images) {
+    // Assign the image we’re looking for to theImage.
+    theImage = document.images[name];
+    }
+    // If theImage exists, return it to the calling function.
+    if (theImage) {
+    return theImage;
+    }
+    // Otherwise, return false (0) to the calling function.
+    return (false);
+    }
+    
+        //detect browser
+if (!navigator.appName == "Microsoft Internet Explorer") {
+    //window.location = "ie_version.htm"
+    }
+    else {
+    if (navigator.appName == "Netscape") {
+        console.log('am verry happy')
+    }
+    // If the user is running some other browser,
+        else {
+        document.write("You’re not running Microsoft IE or Netscape.")
+        }
+    }

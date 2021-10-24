@@ -76,13 +76,13 @@ ul li a:hover{
 } */
 
 
-body {
-    /* display: flex;
+/* body {
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh; 
-   background: #edeeed; */
-}
+   background: #edeeed;
+} */
 
 .drops {
     position: absolute;
