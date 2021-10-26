@@ -1,0 +1,62 @@
+<HTML>
+    <HEAD>
+    <TITLE>Using DHTML to Create Sliding Menus (From JavaScript For Dummies, 4th
+    Edition)</TITLE>
+    <SCRIPT LANGUAGE=”JavaScript” TYPE=”text/javascript”>
+    
+    function displayMenu(currentPosition,nextPosition) {
+    var whichMenu = document.getElementById(currentPosition).style;
+    if (displayMenu.arguments.length == 1) {
+    // Only one argument was sent in, so we need to
+    // figure out the value for “nextPosition”
+    if (parseInt(whichMenu.top) == -5) {
+    nextPosition = -90;
+    }
+    else {
+    // Otherwise, set nextPosition to -5
+    nextPosition = -5;
+    }
+    }
+    // Redisplay the menu using the value of “nextPosition”
+    whichMenu.top = nextPosition + 'px';
+    }
+    // End hiding-->
+    </SCRIPT>
+    // Style sheet definition
+    <STYLE TYPE=”text/css”>
+    .menu {position:absolute; font:12px arial, helvetica, sans-serif; background-color:#CCCCCC; top:-90px}
+    #resMenu {left:10px; width:130px}
+    #bookMenu {left:145px; width:160px}
+    A {text-decoration:none; color:#000000}
+    A:hover {background-color:pink; color:blue}
+    -->
+    </STYLE>
+    </HEAD>
+    <BODY BGCOLOR=”white”>
+    <div id=”resMenu” class=”menu” onMouseOver="displayMenu('resMenu',-5)"
+    onMouseOut="displayMenu('resMenu',-90)"><br />
+    <a href=”jhttp://channels.netscape.com/ns/browsers/default.jsp”>JavaScript doc
+    (Nav)</a><br />
+    <a href=”http://www.microsoft.com/windows/ie/default.htm”>JavaScript doc
+    (IE)</a><br />
+    <a href=”http://www.mozilla.org/docs/dom/domref/dom_shortTOC.html”>DOM
+    (Nav)</a><br />
+    <a
+    href=”http://msdn.microsoft.com/workshop/author/dhtml/reference/ob
+    jects.asp”>DOM (IE)</a><br />
+    <a href=”http://www.scriptsearch.com/JavaScript”>ScriptSearch</a><br />
+    <b><a href=”javascript:displayMenu(‘resMenu’)”>JavaScript Resources</a></b>
+    </div>
+    // Associating the call to displayMenu() with the onMouseOver and onMouseOut
+    // event handlers.
+    <div id=”bookMenu” class=”menu” onMouseOver="displayMenu('bookMenu',-5)"
+    onMouseOut="displayMenu('bookMenu',-90)"><br />
+    <a href=”http://www.dummies.com”>Dummies</a><br />
+    <a href=”http://www.powells.com”>Powells</a><br />
+    <a href=”http://www.amazon.com”>Amazon</a><br />
+    <a href=”http://www.ebay.com”>eBay</a><br />
+    <a href=”http://www.bn.com”>Barnes & Noble</a><br />
+    <b><a href=”javascript:displayMenu(‘bookMenu’)”>JavaScript Books</a></b>
+    </div>
+    </BODY>
+    </HTML>
