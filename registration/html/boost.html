@@ -30,15 +30,13 @@
     <!-- <H3>
         <a href=”invoice.html” onclick="return displayMenu('bookMenu')">Books</a>
     </H3> -->
-    
-    <div class=”menu” id="bookMenu"  onMouseOver="displayMenu('bookMenu',-5)"
-    onMouseOut="displayMenu('bookMenu',-90)">
-    <a href=”http://www.dummies.com”>Dummies</a><br />
-    <a href=”http://www.powells.com”>Powells</a><br />
-    <a href=”http://www.amazon.com”>Amazon</a><br />
-    <a href=”http://www.ebay.com”>eBay</a><br />
-    <a href=”http://www.bn.com”>Barnes & Noble</a><br />
-    <b><a href="javascript:displayMenu('bookMenu')">JavaScript Books</a></b>
+    <b><button type="submit" onclick="disMenu()">JavaScript Books</button></b>
+    <div class=”menu” id="bookMenu">
+    <a href=”http://www.dummies.com” id="bookMenu">Dummies</a><br />
+    <a href=”http://www.powells.com” id="bookMenu">Powells</a><br />
+    <a href=”http://www.amazon.com” id="bookMenu">Amazon</a><br />
+    <a href=”http://www.ebay.com” id="bookMenu">eBay</a><br />
+    <a href=”http://www.bn.com” id="bookMenu">Barnes & Noble</a><br />
     </div>
 </body>
 <script src="boost.js"></script>

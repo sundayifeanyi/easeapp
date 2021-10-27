@@ -19,9 +19,13 @@ function recursion() {
 //     }
 //     return false
 // }
+function disMenu(){
+    document.getElementById('bookMenu').style
+    console.log('works');
+}disMenu()
 
 function displayMenu(currentPosition, nextPosition) {
-    var whichMenu = document.getElementById('#'+ currentPosition).style;
+    var whichMenu = document.getElementById(currentPosition).style;
     if (displayMenu.arguments.length == 1) {
         if (parseInt(whichMenu.top) == -5) {
             nextPosition = -90;

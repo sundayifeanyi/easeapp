@@ -4,11 +4,13 @@
     margin: left 20px;
 } */
 
-.menu { 
-    position:absolute; font:12px arial, helvetica, sans-serif;
-    background-color: #CCCCCC;
+#bookMenu { 
+    margin-left: -20;
+    position:relative; font:12px arial, helvetica, sans-serif;
+    /* background-color: #CCCCCC;
     top:-90px}
     #resMenu {left:10px; width:130px}
     #bookMenu {left:145px; width:160px}
     A {text-decoration:none; color:#000000}
-    A:hover {background-color:pink; color:blue}
+    A:hover {background-color:pink; color:blue} */
+}
