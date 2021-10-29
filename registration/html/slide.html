@@ -1,62 +1,109 @@
-<HTML>
-    <HEAD>
-    <TITLE>Using DHTML to Create Sliding Menus (From JavaScript For Dummies, 4th
-    Edition)</TITLE>
-    <SCRIPT LANGUAGE=”JavaScript” TYPE=”text/javascript”>
-    
-    function displayMenu(currentPosition,nextPosition) {
-    var whichMenu = document.getElementById(currentPosition).style;
-    if (displayMenu.arguments.length == 1) {
-    // Only one argument was sent in, so we need to
-    // figure out the value for “nextPosition”
-    if (parseInt(whichMenu.top) == -5) {
-    nextPosition = -90;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=100">
+    <title>Using DHTML to Create a Site Map (From JavaScript For Dummies, 4thEdition</TITLE>
+        <SCRIPT>
+      
+        function displayMenu(currentMenu) {
+        var thisMenu = document.getElementById(currentMenu).style
+        // If the menu is expanded, contract it.
+        if (thisMenu.display == "block") {
+        thisMenu.display = "none"
+        }
+        else {
+        // If the menu is contracted, expand it.
+        thisMenu.display =  "block"
+        }
+        return false
+        }
+
+        //site toolip
+ function displayTip(theEvent,currentElement) {
+    if (latestBrowser) {
+    tooltip = document.getElementById(currentElement).style
     }
     else {
-    // Otherwise, set nextPosition to -5
-    nextPosition = -5;
+    tooltip = eval("document." + currentElement)
     }
+if (document.all) {
+tooltip.pixelTop = parseInt(theEvent.y)+2
+tooltip.pixelLeft = Math.max(2,parseInt(theEvent.x)-75)
+}
+else {
+if (latestBrowser) {
+tooltip.top = parseInt(theEvent.pageY)+2 + "px"
+tooltip.left = Math.max(2,parseInt(theEvent.pageX)-75) + "px"
+}
+else {
+tooltip.top = parseInt(theEvent.pageY)+2
+tooltip.left = Math.max(2,parseInt(theEvent.pageX)-75)
+}
+}
+tooltip.visibility = "visible"
+}
+function hideTip(currentElement) {
+if (latestBrowser) {
+tooltip = document.getElementById(currentElement).style
+}
+else {
+tooltip = eval("document." + currentElement)
+}
+tooltip.visibility = "hidden"
+}
+        </SCRIPT>
+        <style>
+    .tooltipStyle {
+    background-color: pink; border: pink 1px solid; 
+    background-color: pink; width: 100px; 
+    font: 20px arial, helvetica,sans-serif;
+    padding: 5px; 
+    position: absolute;
+    visibility: hidden
     }
-    // Redisplay the menu using the value of “nextPosition”
-    whichMenu.top = nextPosition + 'px';
-    }
-    // End hiding-->
-    </SCRIPT>
-    // Style sheet definition
-    <STYLE TYPE=”text/css”>
-    .menu {position:absolute; font:12px arial, helvetica, sans-serif; background-color:#CCCCCC; top:-90px}
-    #resMenu {left:10px; width:130px}
-    #bookMenu {left:145px; width:160px}
-    A {text-decoration:none; color:#000000}
-    A:hover {background-color:pink; color:blue}
-    -->
-    </STYLE>
-    </HEAD>
-    <BODY BGCOLOR=”white”>
-    <div id=”resMenu” class=”menu” onMouseOver="displayMenu('resMenu',-5)"
-    onMouseOut="displayMenu('resMenu',-90)"><br />
-    <a href=”jhttp://channels.netscape.com/ns/browsers/default.jsp”>JavaScript doc
-    (Nav)</a><br />
-    <a href=”http://www.microsoft.com/windows/ie/default.htm”>JavaScript doc
-    (IE)</a><br />
-    <a href=”http://www.mozilla.org/docs/dom/domref/dom_shortTOC.html”>DOM
-    (Nav)</a><br />
-    <a
-    href=”http://msdn.microsoft.com/workshop/author/dhtml/reference/ob
-    jects.asp”>DOM (IE)</a><br />
-    <a href=”http://www.scriptsearch.com/JavaScript”>ScriptSearch</a><br />
-    <b><a href=”javascript:displayMenu(‘resMenu’)”>JavaScript Resources</a></b>
-    </div>
-    // Associating the call to displayMenu() with the onMouseOver and onMouseOut
-    // event handlers.
-    <div id=”bookMenu” class=”menu” onMouseOver="displayMenu('bookMenu',-5)"
-    onMouseOut="displayMenu('bookMenu',-90)"><br />
-    <a href=”http://www.dummies.com”>Dummies</a><br />
-    <a href=”http://www.powells.com”>Powells</a><br />
-    <a href=”http://www.amazon.com”>Amazon</a><br />
-    <a href=”http://www.ebay.com”>eBay</a><br />
-    <a href=”http://www.bn.com”>Barnes & Noble</a><br />
-    <b><a href=”javascript:displayMenu(‘bookMenu’)”>JavaScript Books</a></b>
-    </div>
-    </BODY>
-    </HTML>
+        .menu{
+            display:none; 
+            margin-left:20px;
+            }
+        </style>
+        </HEAD>
+        <BODY BGCOLOR=”#FFFFFF”>
+        <H3>
+        <a href='' onClick="return displayMenu('basicMenu')">Knitting
+        Basics</a>
+        </H3>
+        <span class="menu" id='basicMenu'>
+        <b><a href='' onClick="return displayMenu('subMenu')">Planning a
+        project</a></b><br />
+        Making Your Site Easy for Visitors to Navigate and Use
+        <span class=”menu” id=”subMenu”>
+        <a>Choosing yarn</a><br />
+        <a>Swatching</a><br />
+        </span>
+        <b><a>The knit stitch</a></b><br />
+        <b><a>The purl stitch</a></b><br />
+        </span>
+        <p>
+        <a href='' onClick="return displayMenu('advMenu')">Advanced Topics</a>
+        </p>
+        <span class='menu' id='advMenu'>
+        <a>Circular needles</a><br />
+        <a>Cables</a><br />
+        <a>Felting</a><br />
+        <a>Finishing</a><br />
+        </span initial-scale=1.0>
+
+        <MAP NAME='PicMap' ID='PicMap'>
+            <area shape="rect" coords="112,91,136,315" href="" alt="nipe">
+            <AREA SHAPE="rect" COORDS="180,81,200,320" HREF=”#” ALT=”Mary” />
+             Making Your Site Easy for Visitors to Navigate and Use
+            <AREA SHAPE="rect" COORDS="59,26,208,64" HREF=”#” ALT=”bougainvillea” />
+            <AREA SHAPE="rect" COORDS="226,25,303,82" HREF=”#” ALT="needs paint" />
+        </MAP>
+    <IMG SRC='images (23).jpg' USEMAP="#PicMap" HEIGHT="289" WIDTH="289" BORDER="0" ALT="Two cousins" />
+    
+    
+</body>
+</html>
