@@ -128,9 +128,9 @@ function isAValidPhoneNumber(inputValue) {
     }
 }
 //Calling the isAValidPhoneNumber() function
-if (!isAValidPhoneNumber(inputValue)) {
-    alert("We can’t contact you via phone unless you give us your phone number(make sure to include your area code). Thanks!")
-}
+// if (!isAValidPhoneNumber(inputValue)) {
+//     alert("We can’t contact you via phone unless you give us your phone number(make sure to include your area code). Thanks!")
+// }
 //recursion 
 function recursion() {
     alert('1')
@@ -284,32 +284,65 @@ function validateForm() {
         rc = false
     }
 
-if (!document.quoteForm.firstName.value ||
-    !document.quoteForm.lastName.value) {
-    alert("Please type in your entire name (both first and last). Thanks!")
-    rc = false
-}
-if (!document.quoteForm.emailChoice.checked &&
-    !document.quoteForm.phoneChoice.checked) {
-    alert("Please let us know whether you’d like us to contact you by e-mail or by phone. Thanks!")
-    rc = false
-}
-if (document.quoteForm.emailChoice.checked &&
-    !isAValidEmail(document.quoteForm.emailAddr.value)) {
-    alert('We can’t contact you via e-mail unless you give us a valid e-mail address. Thanks!')
-    rc = false
-}
-else {
-    if (document.quoteForm.phoneChoice.checked &&
-        !isAValidPhoneNumber(document.quoteForm.phoneNumber.value)) {
-        alert('We can’t contact you via phone unless you give us your phone number(make sure to include your area code).Thanks!')
+    if (!document.quoteForm.firstName.value ||
+        !document.quoteForm.lastName.value) {
+        alert("Please type in your entire name (both first and last). Thanks!")
         rc = false
     }
+    if (!document.quoteForm.emailChoice.checked &&
+        !document.quoteForm.phoneChoice.checked) {
+        alert("Please let us know whether you’d like us to contact you by e-mail or by phone. Thanks!")
+        rc = false
+    }
+    if (document.quoteForm.emailChoice.checked &&
+        !isAValidEmail(document.quoteForm.emailAddr.value)) {
+        alert('We can’t contact you via e-mail unless you give us a valid e-mail address. Thanks!')
+        rc = false
+    }
+    else {
+        if (document.quoteForm.phoneChoice.checked &&
+            !isAValidPhoneNumber(document.quoteForm.phoneNumber.value)) {
+            alert('We can’t contact you via phone unless you give us your phone number(make sure to include your area code).Thanks!')
+            rc = false
+        }
+    }
+    if (rc) {
+        // If the rc variable is non-zero, then the form data
+        // passed with flying colors!
+        alert("Thanks! We’ll contact you with a quote shortly.")
+    }
+    return rc
 }
-if (rc) {
-    // If the rc variable is non-zero, then the form data
-    // passed with flying colors!
-    alert("Thanks! We’ll contact you with a quote shortly.")
+
+function getMonthName(monthNumber) {
+    // JavaScript arrays begin with 0, not 1, so
+    // subtract 1.
+    monthNumber = monthNumber - 1
+    // Create an array and fill it with 12 values
+    var months = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
+        "Aug", "Sep", "Oct", "Nov", "Dec")
+    if (months[monthNumber] != null) {
+        return (months[monthNumber])
+    }
+    // Otherwise, an exception occurred, so throw
+    else {
+        // This statement throws an error
+        // directly to the catch block.
+        throw "InvalidMonthNumber"
+    }
 }
-return rc
- }
+//////////////////////////////////////////////////////
+// The try block wraps around the main JavaScript
+// The try block
+try {
+    // Call the getMonthName() function with an
+    // invalid month # (there is no 13th month!)
+    // and see what happens.
+    alert(getMonthName(13))
+    alert("We never get here if an exception is thrown.")
+}
+// The catch block
+catch (error) {
+    alert("An " + error + " exception was encountered. Please contact the program vendor.")
+}
+
